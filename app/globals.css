@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark UI baseline */
+:root { color-scheme: dark; }
+
+/* Make full-viewport layouts easy */
+html, body, #__next, :root { height: 100%; }
+
+/* Hide native controls on background videos */
+video::-webkit-media-controls { display: none !important; }
+video { object-fit: cover; }
+
+/* Soft top→bottom legibility gradient for overlays */
+.overlay-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(10,13,18,0.15) 0%,
+    rgba(10,13,18,0.70) 60%,
+    rgba(10,13,18,0.95) 100%
+  );
+}
