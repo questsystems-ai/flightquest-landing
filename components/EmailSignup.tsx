@@ -102,16 +102,20 @@ export default function EmailSignup() {
       </div>
 
       {/* Turnstile widget */}
-      <div className="mt-1">
+      <div className="mt-1 p-2 border border-cyan-500/40 rounded-md bg-black/30">
         <Turnstile
           ref={widgetRef}
           siteKey={SITE_KEY}
           onSuccess={(tok) => setToken(tok)}
           onExpire={() => setToken(null)}
           onError={() => setToken(null)}
-          // refreshExpired removed for maximum version compatibility
           options={{ theme: "dark" }}
         />
+        <div className="mt-1 text-xs text-white/50">
+          host: {typeof window !== "undefined" ? window.location.hostname : "(ssr)"} · key:
+          {String(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY).slice(0,8)}…
+          {String(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY).slice(-4)}
+        </div>
         <p className="mt-1 text-xs text-white/50">This protects FlightQuest from spam.</p>
       </div>
 
