@@ -111,11 +111,6 @@ export default function EmailSignup() {
           onError={() => setToken(null)}
           options={{ theme: "dark" }}
         />
-        <div className="mt-1 text-xs text-white/50">
-          host: {typeof window !== "undefined" ? window.location.hostname : "(ssr)"} · key:
-          {String(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY).slice(0,8)}…
-          {String(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY).slice(-4)}
-        </div>
         <p className="mt-1 text-xs text-white/50">This protects FlightQuest from spam.</p>
       </div>
 
